@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable name="foodObject" type="com.example.food_mood.data.entity.Food" />
+        <variable name="foodDetailsFragment" type="com.example.food_mood.ui.fragment.FoodDetailsFragment" />
+        <variable name="azn" type="String" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarFoodDetails"
+            app:title=""
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivFoodImage"
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbarFoodDetails"
+            app:srcCompat="@color/light_yellow" />
+
+        <TextView
+            android:id="@+id/tvFoodTitle"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@{foodObject.name}"
+            android:textAlignment="center"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivFoodImage" />
+
+        <TextView
+            android:id="@+id/tvFoodPrice"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@{foodObject.price + azn}"
+            android:textAlignment="center"
+            android:textSize="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvFoodDetail" />
+
+        <ImageView
+            android:id="@+id/ivMinus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#622626"
+            android:backgroundTint="#622626"
+            android:src="@drawable/minus_icon"
+            app:layout_constraintBottom_toBottomOf="@id/tvFoodCount"
+            app:layout_constraintLeft_toLeftOf="@id/buttonAddCart"
+            app:layout_constraintTop_toTopOf="@+id/tvFoodCount" />
+
+        <TextView
+            android:id="@+id/tvFoodCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Integer.toString(foodObject.foodCount)}"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp"
+            app:layout_constraintLeft_toRightOf="@+id/ivMinus"
+            app:layout_constraintRight_toLeftOf="@+id/ivPlus"
+            app:layout_constraintTop_toBottomOf="@id/tvFoodPrice" />
+
+        <ImageView
+            android:id="@+id/ivPlus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#622626"
+            android:src="@drawable/plus_icon"
+            app:layout_constraintBottom_toBottomOf="@+id/tvFoodCount"
+            app:layout_constraintRight_toRightOf="@id/buttonAddCart"
+            app:layout_constraintTop_toTopOf="@+id/tvFoodCount" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonAddCart"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Səbətə əlavə et"
+            android:textSize="20sp"
+            app:backgroundTint="@color/logo_color"
+            app:cornerRadius="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvFoodCount" />
+
+        <TextView
+            android:id="@+id/tvFoodDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="12dp"
+            android:text="Hər bir məhsulumuzun hazırlanmasına böyük əmək verdik."
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvFoodTitle" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
